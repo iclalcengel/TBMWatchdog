@@ -1,0 +1,11 @@
+﻿**/bin/
+**/obj/
+**/artifacts/
+.vs/
+.vscode/
+*.user
+*.suo
+*.log
+.env
+.env.*
+**/TestResults/
