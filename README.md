@@ -2,34 +2,53 @@
 
 **Industrial TBM Monitoring & OCR-Based Data Acquisition**
 
-TBMWatchdog is a Windows desktop application developed with **C# / .NET 8 and Windows Forms** to monitor Tunnel Boring Machine (TBM) operational measurements. It includes configurable screen-region capture, Tesseract-based OCR, measurement validation, live dashboards, history tables, charting and CSV export.
+TBMWatchdog is a Windows desktop application developed with **C# / .NET 8 and Windows Forms** for monitoring Tunnel Boring Machine (TBM) operating measurements. It combines configurable screen capture, Tesseract-based OCR, measurement processing and validation, dashboard visualizations, historical measurements, and CSV reporting.
 
-> **Demo notice:** Screenshots may show synthetic simulation values. Demo values are not measurements from an operating TBM, and simulated readings do not demonstrate real OCR performance.
+> **Demo notice:** The screenshots below may show synthetic demo measurements. These are not readings from an operating TBM. The offline demo demonstrates the application interface and data processing pipeline, not the measured accuracy of real-world OCR.
 
-## Highlights
+## Features
 
-- **Excavation dashboard:** RPM, torque, thrust force, advance speed, penetration and advance distance.
-- **Material monitoring:** Independent nominal, scale 1 and scale 2 readings; gate position and material-flow status.
-- **OCR workflow:** Screen capture, configurable regions, OCR preview, confidence indicators and validation.
-- **Live visualization:** Dashboard cards, measurement history and updating charts.
-- **Operations:** CSV records, logging, settings and performance/health window.
-- **Offline demo:** Synthetic measurements can be displayed without a live TBM connection.
-
-## Technologies
-
-C# · .NET 8 · Windows Forms · Tesseract OCR · ScottPlot · OpenTK · JSON · CSV · Git/GitHub
+- **Excavation monitoring:** RPM, torque, thrust force, penetration, advance speed, and advance distance.
+- **Material monitoring:** Separate nominal, scale 1 and scale 2 values, gate position and material flow status.
+- **OCR pipeline:** Configurable screen regions, Tesseract OCR and measurement reliability indicators.
+- **Data visualization:** Live dashboard cards, charts and tabular measurement history.
+- **Operational tooling:** CSV output, application logging, settings, monitoring sessions and health/performance panel.
+- **Offline demo:** Synthetic data source for presenting the application without a live TBM screen.
 
 ## Screenshots
 
-The following images are provided for demonstration and may show simulated readings.
+### Excavation monitoring — simulated data
 
-![TBMWatchdog monitoring screenshot](docs/screenshots/material-monitoring.png)
+![Excavation dashboard showing simulated readings](docs/screenshots/excavation-dashboard.png)
 
-![Additional TBMWatchdog screenshot](docs/screenshots/material-monitoring-2.png)
+### Material monitoring — simulated data
 
-## Run locally
+![Material tracking dashboard showing simulated readings](docs/screenshots/material-monitoring.png)
 
-**Requirements:** Windows 10/11 and .NET 8 SDK (Windows desktop workload). Restore packages and run from the directory containing `TBMWatchdog.csproj`:
+### Settings and screen-region configuration
+
+![Settings panel](docs/screenshots/settings-panel.png)
+
+### Performance and health monitoring
+
+![Performance and health window](docs/screenshots/performance-monitoring.png)
+
+*In offline demo mode the performance screen may show zero real OCR operations.*
+
+## Technology stack
+
+- **Language / framework:** C#, .NET 8, Windows Forms
+- **OCR:** Tesseract
+- **Visualization:** ScottPlot
+- **Additional libraries:** OpenTK
+- **Data and diagnostics:** JSON, CSV, application logs
+- **Version control:** Git, GitHub
+
+## Build and run
+
+**Requirements:** Windows 10/11 and the .NET 8 SDK with Windows desktop development support.
+
+From the directory containing `TBMWatchdog.csproj`:
 
 ```powershell
 dotnet restore .\TBMWatchdog.csproj
@@ -37,18 +56,21 @@ dotnet build .\TBMWatchdog.csproj
 dotnet run --project .\TBMWatchdog.csproj
 ```
 
-For OCR operation, the Tesseract trained-data file must be available under `tessdata/`. Demo mode does not require connecting to a real TBM display.
+For real OCR operation, the required Tesseract language training data should be present under `tessdata` and an appropriate screen region must be configured. In offline demos the application can be presented without an active TBM display.
 
-## Project structure
+## Code organization
 
-- `Forms/` — application windows and settings
-- `Controls/` — dashboard cards and chart components
-- `Models/` — measurements, configuration and OCR data models
-- `Services/` — data sources, monitoring, OCR, CSV, logging and supporting services
-- `Utilities/` — parsing and processing helpers
+- `Controls/`: dashboard components and charts
+- `Forms/`: main dashboard, settings and diagnostics windows
+- `Models/`: measurement records and configuration definitions
+- `Services/`: OCR, monitoring, simulation, storage and related services
+- `Utilities/`: supporting parsing and domain utilities
+
+## Project context
+
+This project demonstrates desktop software engineering, OCR-based data collection, operational data workflows and developer-oriented diagnostics. Its **demo mode** is intended for portfolio demonstrations.
 
 ## Developer
 
-**İclal Çengel** — Computer Engineering & Software Engineering
-
+**İclal Çengel** — Computer Engineer & Software Engineer  
 [GitHub profile](https://github.com/iclalcengel)
